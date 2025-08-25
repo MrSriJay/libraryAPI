@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: library-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: library-api
+  template:
+    metadata:
+      labels:
+        app: library-api
+    spec:
+      containers:
+        - name: library-api
+          image: library-api:latest
+          ports:
+            - containerPort: 8080
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: "prod"
+            - name: DB_URL
+              valueFrom:
+                secretKeyRef:
+                  name: db-secrets
+                  key: url
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: library-api-service
+spec:
+  selector:
+    app: library-api
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+  type: LoadBalancer
