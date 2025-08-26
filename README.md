@@ -17,7 +17,7 @@ The API should allow API users to perform these actions on behalf of a borrower:
 ## Use Case Diagram
 The below diagram illustrates the flow and the use case of the libraryAPU project
 
-![Use case Digram](use case diagram.png)
+![Use case Digram](https://github.com/MrSriJay/libraryAPI/blob/8cf3aa7cc0a7ec8157042a024ca6009d6a609a42/use%20case%20diagram.png)
 
 ## Setup
 1. Install Java 17, Maven, MySQL, Docker, and kubectl.
@@ -30,7 +30,7 @@ The below diagram illustrates the flow and the use case of the libraryAPU projec
 - **OpenAPI JSON**: Access at `/v3/api-docs`.
 
 ## Database Design
-![Use case Digram](db diagram.png)
+![Use case Digram](https://github.com/MrSriJay/libraryAPI/blob/8cf3aa7cc0a7ec8157042a024ca6009d6a609a42/db%20diagram.png)
 - **Database: MySQL 8.0, named librarydb.**
 - **Entities/Tables:**
     - Borrower: Stores borrower information (ID, name, email).
