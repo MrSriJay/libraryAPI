@@ -1,5 +1,20 @@
 # Library API
 
+## Task
+Create a RESTful API that manages a simple library system.
+
+The API should allow API users to:
+
+1. Register a new borrower to the library.
+2. Register a new book to the library.
+3. Get a list of all books in the library.
+
+The API should allow API users to perform these actions on behalf of a borrower:
+
+1. Borrow a book with a particular book id (refer Book in Data Models).
+2. Return a borrowed book.
+
+
 ## Setup
 1. Install Java 17, Maven, MySQL, Docker, and kubectl.
 2. Create MySQL database: `librarydb` (e.g., `CREATE DATABASE librarydb;`).
