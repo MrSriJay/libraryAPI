@@ -3,7 +3,7 @@ name: Test Library API on Dev to Main Merge
 on:
   pull_request:
     branches:
-      - main
+      - master
     types:
       - closed
 
