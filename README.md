@@ -1,5 +1,24 @@
 # Library API
 
+## Task
+Create a RESTful API that manages a simple library system.
+
+The API should allow API users to:
+
+1. Register a new borrower to the library.
+2. Register a new book to the library.
+3. Get a list of all books in the library.
+
+The API should allow API users to perform these actions on behalf of a borrower:
+
+1. Borrow a book with a particular book id (refer Book in Data Models).
+2. Return a borrowed book.
+
+## Use Case Diagram
+The below diagram illustrates the flow and the use case of the libraryAPU project
+
+![Use case Digram](https://github.com/MrSriJay/libraryAPI/blob/8cf3aa7cc0a7ec8157042a024ca6009d6a609a42/use%20case%20diagram.png)
+
 ## Setup
 1. Install Java 17, Maven, MySQL, Docker, and kubectl.
 2. Create MySQL database: `librarydb` (e.g., `CREATE DATABASE librarydb;`).
@@ -9,6 +28,19 @@
 ## API Documentation
 - **Swagger UI**: Access at `http://<service-ip>:80/swagger-ui.html` (Kubernetes) or `http://localhost:8080/swagger-ui.html` (local/Docker).
 - **OpenAPI JSON**: Access at `/v3/api-docs`.
+
+## Database Design
+![Use case Digram](https://github.com/MrSriJay/libraryAPI/blob/8cf3aa7cc0a7ec8157042a024ca6009d6a609a42/db%20diagram.png)
+- **Database: MySQL 8.0, named librarydb.**
+- **Entities/Tables:**
+    - Borrower: Stores borrower information (ID, name, email).
+    - Book: Stores book information (ID, ISBN, title, author, and borrowing status).
+
+- **Relationships:**
+
+  - One-to-Many (optional): A borrower can borrow multiple books, but a book is borrowed by at most one borrower (or none if available).
+  - Implemented via a borrowedById foreign key in the Book table referencing Borrower(id).
+
 
 ## Endpoints
 - **POST /api/borrowers**
@@ -105,3 +137,6 @@
 ## Deployment
 - **Docker**: See Docker Setup section.
 - **Kubernetes**: See Kubernetes Setup section.
+
+## GitHub Actions
+- A workflow (`.github/workflows/test.yml`) runs tests automatically when a pull request from the `dev` branch to the `main` branch is merged.
